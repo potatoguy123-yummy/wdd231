@@ -1,0 +1,32 @@
+@media only screen and (min-width: 38rem) {
+    header, main, nav, footer {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    .hamburger {
+        display: none;
+    }
+    header {
+        grid-template-columns: 24px auto;
+    }
+    .navigation {
+        display: block;
+        border-bottom: solid 1px #eee;
+    }
+    .navigation ul {
+        display: flex;
+    }
+    .navigation a {
+        border: none;
+    }
+    main {
+        grid-template-areas: 
+            "header header header"
+            "about about photo"
+            "course course course";
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    #classes {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}
