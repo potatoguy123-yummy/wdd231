@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Fort Worth Chamber of Commerce">
+    <meta property="og:description" content="Fort Worth Chamber of Commerce - Directory">
+    <meta property="og:url" content="https://potatoguy123-yummy.github.io/wdd231/">
+    <meta property="og:image" content="https://potatoguy123-yummy.github.io/wdd231/images/photo_of_myself.jpg">
+    <link rel="icon" href="favicon.svg">
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/larger.css">
+    <script src="scripts/navigation.js" defer></script>
+    <script src="scripts/getdate.js" defer></script>
+    <script src="scripts/directory.js" defer></script>
+    <title>Fort Worth Chamber of Commerce</title>
+</head>
+<body>
+    <header>
+        <img src="images/home.svg" alt="Site logo" width="48" height="48">
+        <span>Fort Worth Chamber of Commerce</span>
+        <button id="ham-btn" class="hamburger" title="hamburger"></button>
+        <nav id="nav-bar" class="navigation">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li class="current"><a href="#">Directory</a></li>
+                <li><a href="#">Join</a></li>
+                <li><a href="#">Discover</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="directory-control">
+            <div class="display-method">
+                <button id="grid-button" class="selected">Grid</button>
+                <button id="list-button">List</button>
+            </div>
+        </div>
+        <div id="directory" class="directory-grid">
+        </div>
+    </main>
+    <footer>
+        <div class="textblock">
+            <span>10 address ln</span>
+            <span>Fort Worth, TX, 76102</span>
+            <span>info@fwcofc.com</span>
+            <span>(817) 555-5555</span>
+        </div>
+        <div class="social">
+            <a href="https://www.facebook.com/" target="_blank"><img src="images/facebook.svg" alt="Facebook" width="16" height="16"></a>
+            <a href="https://www.instagram.com/" target="_blank"><img src="images/instagram.svg" alt="Instagram" width="16" height="16"></a>
+            <a href="https://www.linkedin.com/" target="_blank"><img src="images/linkedin.svg" alt="Linkedin" width="16" height="16"></a>
+        </div>
+        <div class="textblock">
+            <span>WDD231 Class Project</span>
+            <span>Ethan O'Brien</span>
+            <span>©<span id="currentyear"></span> | Fort Worth Chamber of Commerce</span>
+            <span>Last updated: <span id="lastModified"></span></span>
+        </div>
+    </footer>
+</body>
+</html>
