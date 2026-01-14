@@ -123,10 +123,6 @@ main {
     gap: 1rem;
 }
 
-.directory-grid .card {
-    display: inline-block !important;
-}
-
 .directory-list .image {
     display: none !important;
 }
@@ -138,8 +134,7 @@ main {
 }
 
 .directory-grid .card {
-    display: flex;
-    justify-content: center;
+    display: inline-block;
     align-items: center;
     text-align: center;
 }
