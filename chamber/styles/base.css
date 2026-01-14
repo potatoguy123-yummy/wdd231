@@ -15,6 +15,10 @@
     --body-card: rgb(250, 248, 245);
 }
 
+html {
+    background-color: var(--body-background);
+}
+
 
 /* Header */
 
@@ -102,14 +106,42 @@ main {
     flex-direction: row;
     gap: 12px;
     border: 1px solid rgba(60, 10, 10, 0.1);
+    overflow-wrap: break-word;
 }
 
 /* Directory */
 
-.directory-grid, .directory-list {
+.directory-list {
     display: flex;
     flex-direction: column;
     gap: 12px;
+}
+
+.directory-list .card > div {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+.directory-grid .card {
+    display: inline-block !important;
+}
+
+.directory-list .image {
+    display: none !important;
+}
+
+.directory-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+}
+
+.directory-grid .card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 .display-method {
@@ -118,8 +150,8 @@ main {
     border-radius: 12px;
     padding: 4px;
     isolation: isolate;
-    display: none;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.1), 0 24px 51px 0 rgba(0,0,0,0.19);
+    display: inline-flex;
 }
 
 .display-method button {
@@ -161,11 +193,11 @@ main {
 }
 
 .image {
-    display: none;
     height: 6rem;
     border: 1px solid black;
     overflow: hidden;
     max-width: 215px;
+    display: inline-block;
 }
 
 /* Footer */

@@ -21,18 +21,11 @@
     footer {
         grid-template-columns: auto 1fr auto;
     }
-    .display-method {
-        display: inline-flex;
-    }
     .directory-grid {
-        display: grid;
         grid-template-columns: repeat(2, 1fr);
     }
-    .directory-grid .card {
-        display: inline-block;
-    }
-    .image {
-        display: inline-block;
+    .directory-list .card > div {
+        grid-template-columns: repeat(4, 20vw);
     }
 }
 
