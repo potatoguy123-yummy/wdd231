@@ -223,6 +223,33 @@ a {
     width: fit-content;
 }
 
+/* Homepage */
+
+.info {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+.info > div {
+    border: 1px solid black;
+    min-height: 200px;
+}
+
+.info > div > h2 {
+    background-color: var(--header-background);
+    width: 100%;
+    text-align: center;
+    padding: 5px;
+}
+
+.business {
+    padding-top: 1rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
 /* Footer */
 
 footer {

@@ -21,6 +21,8 @@
     footer {
         grid-template-columns: auto 1fr auto;
     }
+
+    /* directory */
     .directory-grid {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -28,6 +30,19 @@
         grid-template-columns: repeat(4, 1fr);
         width: 100%;
     }
+
+    /* homepage */
+    .info {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    .business {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .info > :first-child {
+        grid-column: span 2;
+    }
+
 }
 
 @media only screen and (min-width: 55rem) {
