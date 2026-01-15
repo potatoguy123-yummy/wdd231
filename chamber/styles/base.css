@@ -13,6 +13,8 @@
     --body-font: rgb(80, 20, 20);
     --body-hover: rgb(232, 220, 215);
     --body-card: rgb(250, 248, 245);
+
+    --maximum-page-size: 1600px;
 }
 
 html {
