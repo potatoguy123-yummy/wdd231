@@ -202,7 +202,6 @@ main {
 }
 
 .image {
-    height: 6rem;
     overflow: hidden;
     max-width: 215px;
     display: inline-block;
