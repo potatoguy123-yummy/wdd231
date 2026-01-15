@@ -27,6 +27,7 @@ function displayItem(item) {
     imageDiv.appendChild(img);
 
     const infoDiv = document.createElement("div");
+    infoDiv.classList.add("card-content");
 
     const h2 = document.createElement("h2");
     h2.innerText = item.name;

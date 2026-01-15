@@ -109,6 +109,10 @@ main {
     overflow-wrap: break-word;
 }
 
+.card-content h2 {
+    margin-bottom: 10px;
+}
+
 /* Directory */
 
 .directory-list {
@@ -193,10 +197,16 @@ main {
 
 .image {
     height: 6rem;
-    border: 1px solid black;
     overflow: hidden;
     max-width: 215px;
     display: inline-block;
+    height: fit-content;
+}
+
+.image img {
+    border: 1px solid black;
+    border-radius: 15px;
+    width: 100%;
 }
 
 a {

@@ -3,7 +3,7 @@
         "name": "Nova Tech Solutions",
         "address": "452 Innovation Way",
         "phone": "(817) 555-1020",
-        "image": "images/novaTech.jpg",
+        "image": "images/nova-tech-solutions.jpg",
         "website": "https://novatech.io",
         "level": 3,
         "description": "Leading provider of cloud-based enterprise resource planning software."
@@ -12,7 +12,7 @@
         "name": "Green Leaf Landscaping",
         "address": "890 Garden Blvd",
         "phone": "(817) 555-3341",
-        "image": "images/greenLeaf.jpg",
+        "image": "images/green-leaf-landscaping.jpg",
         "website": "https://greenleaflandscapes.com",
         "level": 1,
         "description": "Full-service residential and commercial lawn maintenance and design."
@@ -21,7 +21,7 @@
         "name": "Summit Peak Realty",
         "address": "1200 Skyline Dr",
         "phone": "(817) 555-9876",
-        "image": "images/summitPeak.jpg",
+        "image": "images/summit-peak-realty.jpg",
         "website": "https://summitpeakrealty.net",
         "level": 2,
         "description": "Helping families find their perfect homes in the greater metropolitan area."
@@ -30,7 +30,7 @@
         "name": "Blue Anchor Logistics",
         "address": "303 Harbor Port Rd",
         "phone": "(817) 555-4422",
-        "image": "images/blueAnchor.jpg",
+        "image": "images/blue-anchor-logistics.jpg",
         "website": "https://blueanchorlogs.com",
         "level": 3,
         "description": "Global freight forwarding and supply chain management experts."
@@ -39,7 +39,7 @@
         "name": "Pioneer Coffee Roasters",
         "address": "15 Main St",
         "phone": "(817) 555-0112",
-        "image": "images/pioneerCoffee.jpg",
+        "image": "images/pioneer-coffee-roasters.jpg",
         "website": "https://pioneer-roasts.com",
         "level": 1,
         "description": "Ethically sourced, small-batch coffee roasted daily in-house."
@@ -48,7 +48,7 @@
         "name": "Ironclad Security Systems",
         "address": "770 Defense Cir",
         "phone": "(817) 555-8800",
-        "image": "images/ironclad.jpg",
+        "image": "images/ironclad-security-systems.jpg",
         "website": "https://ironclad-security.com",
         "level": 2,
         "description": "State-of-the-art home monitoring and smart security installations."
@@ -57,7 +57,7 @@
         "name": "Vista Design Agency",
         "address": "55 Creative Ln",
         "phone": "(817) 555-2121",
-        "image": "images/vistaDesign.jpg",
+        "image": "images/vista-design-agency.jpg",
         "website": "https://vistadesign.co",
         "level": 3,
         "description": "A boutique agency specializing in branding, UI/UX, and digital strategy."
@@ -66,7 +66,7 @@
         "name": "Swift Motion Auto",
         "address": "902 Velocity Ave",
         "phone": "(817) 555-6754",
-        "image": "images/swiftMotion.jpg",
+        "image": "images/swift-motion-auto.jpg",
         "website": "https://swiftmotionauto.com",
         "level": 1,
         "description": "Certified mechanics specializing in luxury and performance vehicle repair."
@@ -75,7 +75,7 @@
         "name": "Radiant Health Chiropractic",
         "address": "210 Wellness Way",
         "phone": "(817) 555-3210",
-        "image": "images/radiantHealth.jpg",
+        "image": "images/radiant-health-chiropractic.jpg",
         "website": "https://radiant-chiropractic.com",
         "level": 2,
         "description": "Holistic wellness center focused on spinal health and recovery."
@@ -84,7 +84,7 @@
         "name": "Apex Financial Group",
         "address": "100 Capital Tower",
         "phone": "(817) 555-5500",
-        "image": "images/apexFinancial.jpg",
+        "image": "images/apex-financial-group.jpg",
         "website": "https://apex-finance.com",
         "level": 3,
         "description": "Personalized wealth management and retirement planning services."
