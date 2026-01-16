@@ -102,6 +102,9 @@ header span {
 main {
     background-color: var(--body-background);
     color: var(--body-font);
+}
+
+.padded {
     padding: 2rem 1rem;
 }
 
@@ -248,6 +251,34 @@ a {
     display: grid;
     grid-template-columns: 1fr;
     gap: 1rem;
+}
+
+.hero {
+    width: 100%;
+    height: auto;
+    border: 1px solid black;
+    aspect-ratio: 35 / 9;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero a {
+    position: absolute;
+    bottom: 1.25rem;
+    right: 1.25rem;
+    background: var(--body-card);
+    color: var(--body-font);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 16px;
+    font-size: 0.85rem;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    border: 1px solid grey;
+}
+
+.hero a:hover {
+    background: var(--body-hover);
 }
 
 /* Footer */
