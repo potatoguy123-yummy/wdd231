@@ -35,9 +35,6 @@
     .info {
         grid-template-columns: repeat(4, 1fr);
     }
-    .business {
-        grid-template-columns: repeat(3, 1fr);
-    }
 
     .info > :nth-child(1) {
         grid-column: span 3;
@@ -49,7 +46,7 @@
 
 }
 
-@media only screen and (min-width: 55rem) {
+@media only screen and (min-width: 60rem) {
     .directory-grid {
         grid-template-columns: repeat(3, 1fr);
     }
@@ -58,5 +55,8 @@
 @media only screen and (min-width: 75rem) {
     .directory-grid {
         grid-template-columns: repeat(4, 1fr);
+    }
+    .business {
+        grid-template-columns: repeat(3, 1fr);
     }
 }

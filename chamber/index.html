@@ -19,6 +19,7 @@
     <script src="scripts/navigation.js" defer></script>
     <script src="scripts/getdate.js" defer></script>
     <script src="scripts/home.js" defer></script>
+    <script src="scripts/weather.js" defer></script>
     <title>Directory - Fort Worth Chamber of Commerce</title>
 </head>
 <body>
@@ -37,7 +38,8 @@
     </header>
     <main>
         <section class="hero">
-            <a>Click me!</a>
+            <img src="images/fort-worth-skyline.jpeg">
+            <a href="join.html">Join us!</a>
         </section>
         <section class="info padded">
             <h1>Home</h1>
@@ -46,16 +48,24 @@
             </div>
             <div>
                 <h2>Current Weather</h2>
+                <div class="current-weather">
+                    <img alt="icon" id="weather-icon" src="https://openweathermap.org/img/w/04n.png">
+                    <p><strong><span id="temp-now"></span>°</strong>F</p>
+                    <p>High: <span id="temp-high"></span>°F</p>
+                    <p>Low: <span id="temp-low"></span>°F</p>
+                    <p>Humidity: <span id="humidity"></span>%</p>
+                    <p>Sunrise: <span id="sunrise"></span></p>
+                    <p>Sunset: <span id="sunset"></span></p>
+                </div>
             </div>
-            <div id="weather-forecast">
+            <div class="weather-forecast">
                 <h2>Weather Forecast</h2>
+                <p>Today: <strong><span id="forecast-today"></span>°F</strong></p>
+                <p><span id="forecast-tomorrow-day"></span>: <strong><span id="forecast-tomorrow"></span>°F</strong></p>
+                <p><span id="forecast-tomorrow2-day"></span>: <strong><span id="forecast-tomorrow2"></span>°F</strong></p>
             </div>
         </section>
-        <section class="business padded">
-            <div class="card">Placeholder</div>
-            <div class="card">Placeholder</div>
-            <div class="card">Placeholder</div>
-        </section>
+        <section class="business padded directory-grid" id="business"></section>
     </main>
     <footer>
         <div class="textblock">
