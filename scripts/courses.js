@@ -102,8 +102,7 @@ function addButton(value) {
     }
     element.appendChild(label);
     if (typeof callback === "function") {
-        const event = button ? "click" : "change";
-        input.addEventListener(event, (e) => {
+        label.addEventListener("click", (e) => {
             callback(e, callbackData);
         });
     }
@@ -117,16 +116,69 @@ function updateCreditUI(cat) {
     }, 0);
 }
 
+const courseDetails = document.querySelector("#course-details");
+
+function displayCourseDetails(e, course) {
+    courseDetails.innerHTML = "";
+
+    const closeButton = document.createElement("button");
+    closeButton.id = "closeModal";
+    closeButton.textContent = "❌";
+
+    const h2 = document.createElement("h2");
+    h2.textContent = `${course.subject} ${course.number}`;
+
+    const h3 = document.createElement("h3");
+    h3.textContent = course.title;
+
+    const credits = document.createElement("p");
+    const creditsStrong = document.createElement("strong");
+    creditsStrong.textContent = "Credits";
+    credits.appendChild(creditsStrong);
+    credits.append(`: ${course.credits}`);
+
+    const certificate = document.createElement("p");
+    const certificateStrong = document.createElement("strong");
+    certificateStrong.textContent = "Certificate";
+    certificate.appendChild(certificateStrong);
+    certificate.append(`: ${course.certificate}`);
+
+    const description = document.createElement("p");
+    description.textContent = course.description;
+
+    const technologies = document.createElement("p");
+    const techStrong = document.createElement("strong");
+    techStrong.textContent = "Technologies";
+    technologies.appendChild(techStrong);
+    technologies.append(`: ${course.technology.join(", ")}`);
+
+    courseDetails.appendChild(closeButton);
+    courseDetails.appendChild(h2);
+    courseDetails.appendChild(h3);
+    courseDetails.appendChild(credits);
+    courseDetails.appendChild(certificate);
+    courseDetails.appendChild(description);
+    courseDetails.appendChild(technologies);
+
+    courseDetails.showModal();
+
+    closeButton.addEventListener("click", () => {
+        courseDetails.close();
+    });
+}
+
+
 function renderCategory(cat) {
     const classButtons = document.getElementById("classes");
     classButtons.innerHTML = "";
     const category = filterBySubject(cat || null);
     category.forEach(obj => {
-        addButton({text: `${obj.subject} ${obj.number}`, element: classButtons, checked: obj.completed});
+        addButton({text: `${obj.subject} ${obj.number}`, element: classButtons, checked: obj.completed, callback: displayCourseDetails, callbackData: obj});
     })
 }
 
 function courseSelectionCallback(event, cat) {
+    console.log(arguments);
     renderCategory(cat);
     updateCreditUI(cat);
 }
