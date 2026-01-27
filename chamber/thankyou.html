@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Fort Worth Chamber of Commerce - Thank you! Thank you for submitting your application for your membership!">
+    <meta name="author" content="Ethan O'Brien">
+    <meta property="og:title" content="Fort Worth Chamber of Commerce Directory">
+    <meta property="og:description" content="Fort Worth Chamber of Commerce - Thank you! Thank you for submitting your application for your membership!">
+    <meta property="og:url" content="https://potatoguy123-yummy.github.io/wdd231/chamber/thankyou.html">
+    <meta property="og:image" content="https://potatoguy123-yummy.github.io/wdd231/chamber/images/fort-worth-skyline-large.jpeg">
+    <link rel="icon" href="favicon.svg">
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/larger.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap" rel="stylesheet">
+    <script src="scripts/navigation.js" defer></script>
+    <script src="scripts/getdate.js" defer></script>
+    <script src="scripts/thankyou.js" defer></script>
+    <title>Directory - Fort Worth Chamber of Commerce</title>
+</head>
+<body>
+    <header>
+        <img src="images/home.svg" alt="Site logo" width="48" height="48">
+        <span>Fort Worth Chamber of Commerce</span>
+        <button id="ham-btn" class="hamburger" title="hamburger"></button>
+        <nav id="nav-bar" class="navigation">
+            <ul>
+                <li><a href="./">Home</a></li>
+                <li><a href="./directory.html">Directory</a></li>
+                <li><a href="./join.html">Join</a></li>
+                <li><a href="./discover.html">Discover</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="padded">
+        <h1>Thank You for Your Application!</h1>
+        <h2>Your Application Details:</h2>
+        <div class="application-details">
+            <p><strong>First Name:</strong> <span id="firstNameLabel"></span></p>
+            <p><strong>Last Name:</strong> <span id="lastNameLabel"></span></p>
+            <p><strong>Email:</strong> <span id="emailLabel"></span></p>
+            <p><strong>Mobile Number:</strong> <span id="mobileLabel"></span></p>
+            <p><strong>Organization Name:</strong> <span id="orgNameLabel"></span></p>
+            <p><strong>Application Timestamp:</strong> <span id="timestampLabel"></span></p>
+        </div>
+    </main>
+    <footer>
+        <div class="textblock">
+            <span>10 address ln</span>
+            <span>Fort Worth, TX, 76102</span>
+            <span>info@fwcofc.com</span>
+            <span>(817) 555-5555</span>
+        </div>
+        <div class="social">
+            <a href="https://www.facebook.com/" target="_blank"><img src="images/facebook.svg" alt="Facebook" width="16" height="16"></a>
+            <a href="https://www.instagram.com/" target="_blank"><img src="images/instagram.svg" alt="Instagram" width="16" height="16"></a>
+            <a href="https://www.linkedin.com/" target="_blank"><img src="images/linkedin.svg" alt="Linkedin" width="16" height="16"></a>
+        </div>
+        <div class="textblock">
+            <span>WDD231 Class Project</span>
+            <span>Ethan O'Brien</span>
+            <span>©<span id="currentyear"></span> | Fort Worth Chamber of Commerce</span>
+            <span>Last updated: <span id="lastModified"></span></span>
+        </div>
+    </footer>
+</body>
+</html>

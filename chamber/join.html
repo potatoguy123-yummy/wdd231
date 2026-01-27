@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Fort Worth Chamber of Commerce - Join. Join the Chamber of Commerce">
+    <meta name="author" content="Ethan O'Brien">
+    <meta property="og:title" content="Fort Worth Chamber of Commerce Directory">
+    <meta property="og:description" content="Fort Worth Chamber of Commerce - Join. Join the Chamber of Commerce">
+    <meta property="og:url" content="https://potatoguy123-yummy.github.io/wdd231/chamber/join.html">
+    <meta property="og:image" content="https://potatoguy123-yummy.github.io/wdd231/chamber/images/fort-worth-skyline-large.jpeg">
+    <link rel="icon" href="favicon.svg">
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/larger.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap" rel="stylesheet">
+    <script src="scripts/navigation.js" defer></script>
+    <script src="scripts/getdate.js" defer></script>
+    <script src="scripts/join.js" defer></script>
+    <title>Join - Fort Worth Chamber of Commerce</title>
+</head>
+<body>
+    <header>
+        <img src="images/home.svg" alt="Site logo" width="48" height="48">
+        <span>Fort Worth Chamber of Commerce</span>
+        <button id="ham-btn" class="hamburger" title="hamburger"></button>
+        <nav id="nav-bar" class="navigation">
+            <ul>
+                <li><a href="./">Home</a></li>
+                <li><a href="./directory.html">Directory</a></li>
+                <li class="current"><a href="./join.html">Join</a></li>
+                <li><a href="./discover.html">Discover</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="padded form">
+        <h1>Membership Application Form</h1>
+
+        <form method="GET" action="thankyou.html">
+            <label for="firstName">First Name:</label>
+            <input type="text" id="firstName" name="firstName" required title="First Name" autocomplete="given-name">
+
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" name="lastName" required title="Last Name" autocomplete="family-name">
+
+            <label for="orgTitle">Organizational Title:</label>
+            <input type="text" id="orgTitle" name="orgTitle" title="Organizational Title" autocomplete="organization-title" pattern="^[a-zA-Z\- ]{7,}$">
+
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" name="email" required title="Email Address" placeholder="example@domain.com" autocomplete="email">
+
+            <label for="mobile">Mobile Phone Number:</label>
+            <input type="tel" id="mobile" name="mobile" required title="Mobile Phone Number" autocomplete="tel">
+
+            <label for="orgName">Business/Organization Name:</label>
+            <input type="text" id="orgName" name="orgName" required title="Business/Organization Name" autocomplete="organization">
+
+            <label for="membershipLevel">Membership Level:</label>
+            <select id="membershipLevel" name="membershipLevel" required title="Membership Level">
+                <option value="" disabled>Please choose one</option>
+                <option value="np">Non-Profit Membership (No Fee)</option>
+                <option value="bronze">Bronze Membership</option>
+                <option value="silver">Silver Membership</option>
+                <option value="gold">Gold Membership</option>
+            </select>
+
+            <label for="description">Business/Organization Description:</label>
+            <textarea id="description" name="description" title="Business/Organization Description"></textarea>
+
+            <input type="hidden" id="timestamp" name="timestamp" value="">
+
+            <button type="submit">Submit Application</button>
+        </form>
+
+        <div class="membership-cards">
+            <h2>Membership Levels</h2>
+            <div class="membership-card np-modal">
+                <h3>Non-Profit Membership</h3>
+                <button>Learn More</button>
+            </div>
+
+            <div class="membership-card bronze-modal">
+                <h3>Bronze Membership</h3>
+                <button>Learn More</button>
+            </div>
+
+            <div class="membership-card silver-modal">
+                <h3>Silver Membership</h3>
+                <button>Learn More</button>
+            </div>
+
+            <div class="membership-card gold-modal">
+                <h3>Gold Membership</h3>
+                <button>Learn More</button>
+            </div>
+        </div>
+        <div>
+            <dialog id="np-modal">
+                <div class="modal-content">
+                    <h2>NP Membership</h2>
+                    <p>You get recognized for being a non-profit! This doesn't cost money!!</p>
+                    <button class="close-button">Close</button>
+                </div>
+            </dialog>
+
+            <dialog id="bronze-modal">
+                <div class="modal-content">
+                    <h2>Bronze Membership</h2>
+                    <p>You pay the least and don't get promotions</p>
+                    <button class="close-button">Close</button>
+                </div>
+            </dialog>
+
+            <dialog id="silver-modal">
+                <div class="modal-content">
+                    <h2>Silver Membership</h2>
+                    <p>You get promotions</p>
+                    <button class="close-button">Close</button>
+                </div>
+            </dialog>
+
+            <dialog id="gold-modal">
+                <div class="modal-content">
+                    <h2>Gold Membership</h2>
+                    <p>You are important and get promoted!</p>
+                    <button class="close-button">Close</button>
+                </div>
+            </dialog>
+        </div>
+    </main>
+    <footer>
+        <div class="textblock">
+            <span>10 address ln</span>
+            <span>Fort Worth, TX, 76102</span>
+            <span>info@fwcofc.com</span>
+            <span>(817) 555-5555</span>
+        </div>
+        <div class="social">
+            <a href="https://www.facebook.com/" target="_blank"><img src="images/facebook.svg" alt="Facebook" width="16" height="16"></a>
+            <a href="https://www.instagram.com/" target="_blank"><img src="images/instagram.svg" alt="Instagram" width="16" height="16"></a>
+            <a href="https://www.linkedin.com/" target="_blank"><img src="images/linkedin.svg" alt="Linkedin" width="16" height="16"></a>
+        </div>
+        <div class="textblock">
+            <span>WDD231 Class Project</span>
+            <span>Ethan O'Brien</span>
+            <span>©<span id="currentyear"></span> | Fort Worth Chamber of Commerce</span>
+            <span>Last updated: <span id="lastModified"></span></span>
+        </div>
+    </footer>
+</body>
+</html>

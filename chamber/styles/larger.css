@@ -43,7 +43,6 @@
     .info > :nth-child(2) {
         grid-column: span 2;
     }
-
 }
 
 @media only screen and (min-width: 60rem) {
@@ -58,5 +57,15 @@
     }
     .business {
         grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+
+@media only screen and (min-width: 45rem) {
+    .form {
+        grid-template-columns: 65% 35%;
+        grid-template-areas:
+            "header header"
+            "form cards";
     }
 }
