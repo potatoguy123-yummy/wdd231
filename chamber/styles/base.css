@@ -399,7 +399,7 @@ select {
 }
 
 button[type="submit"] {
-    background-color: #007bff;
+    background-color: #00438b;
     color: white;
     padding: 10px 15px;
     border: none;
@@ -498,7 +498,7 @@ dialog {
     max-width: none;
     max-height: none;
     border: none;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.75);
     justify-content: center;
     align-items: center;
 }
