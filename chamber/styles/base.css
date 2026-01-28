@@ -333,6 +333,10 @@ footer {
     grid-row: 1 / -1;
 }
 
+.current-events {
+    padding: 0.5rem 0.5rem;
+}
+
 .business .card > :first-child {
     grid-column: 1 / span 2;
 }
