@@ -87,6 +87,22 @@
     line-height: 1.4;
 }
 
+.feature-item .button {
+    margin-top: 1rem;
+    background-color: var(--body-color);
+    color: white;
+    padding: 0.5em 1em;
+    border-radius: 7px;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    transition: background-color 0.2s ease;
+}
+
+.feature-item .button {
+    background-color: var(--header-hover);
+}
+
 /* About */
 .about {
     background-color: var(--body-background);
