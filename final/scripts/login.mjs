@@ -1,18 +1,18 @@
-import { login } from "./api.mjs";
+import { getServerInfo, login } from "./api.mjs";
 const form = document.querySelector("form");
 
 function showError(message) {
-    const modalTitle = document.getElementById('modal-title');
-    const modalMessage = document.getElementById('modal-message');
-    const modal = document.querySelector('dialog');
+    const modalTitle = document.getElementById("modal-title");
+    const modalMessage = document.getElementById("modal-message");
+    const modal = document.querySelector("dialog");
 
-    modalTitle.textContent = 'Error';
+    modalTitle.textContent = "Error";
     modalMessage.textContent = message;
     modal.showModal();
 }
 
-document.querySelector('.close-button').addEventListener('click', () => {
-    document.querySelector('dialog').close();
+document.querySelector(".close-button").addEventListener("click", () => {
+    document.querySelector("dialog").close();
 });
 
 const uidElement = document.querySelector("form #id");
@@ -39,3 +39,18 @@ form.addEventListener("submit", async (event) => {
 })
 
 uidElement.value = localStorage.getItem("uid") || "";
+
+try {
+    const info = await getServerInfo();
+    if (info.account_import === true) {
+        document.querySelector(".sub").style.display = "inline-block";
+    }
+} catch(e) {
+    console.warn(e);
+    // Ignore error
+}
+
+document.getElementById("import-button").addEventListener("click", e => {
+    e.preventDefault();
+    window.location.href = "import.html";
+})

@@ -30,6 +30,7 @@
                 <li><a href="./">Home</a></li>
                 <li><a href="cards.html">Card Database</a></li>
                 <li><a href="songs.html">Song List</a></li>
+                <li><a href="help.html">FAQ</a></li>
                 <li id="account"><a href="account.html">Account</a></li>
                 <li id="login"><a class="current-page" href="login.html">Login</a></li>
             </ul>
@@ -37,12 +38,16 @@
     </header>
     <main>
         <div id="login-form">
+            <h1>Login</h1>
             <form>
                 <label for="id">SIF2 ID:</label>
                 <input type="text" id="id" name="id" value="">
                 <label for="password">Transfer passcode:</label>
                 <input type="password" id="password" name="password">
                 <input type="submit" value="Submit">
+                <div class="sub">
+                    <button id="import-button">Import User</button>
+                </div>
             </form>
         </div>
         <dialog>

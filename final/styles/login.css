@@ -14,7 +14,7 @@
     padding: 20px 0;
     font-size: 28px;
     font-weight: 700;
-    color: #fff;
+    color: black;
 }
 
 form {
@@ -115,4 +115,29 @@ dialog .modal-content {
 
 dialog::backdrop {
     background-color: rgba(0, 0, 0, 0.7);
+}
+
+
+.sub {
+    display: none;
+    padding-top: 10px;
+    width: 100%;
+}
+
+.sub button {
+    width: 40%;
+    padding: 12px;
+    background-color: var(--header-hover);
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px #0000001a;
+    transition: box-shadow .3s ease;
+}
+
+.sub button:hover {
+    box-shadow: 0 4px 6px #0000004d;
 }

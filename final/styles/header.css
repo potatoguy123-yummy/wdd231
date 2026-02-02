@@ -88,3 +88,7 @@ header span {
         border: none;
     }
 }
+
+#account {
+    display: none;
+}

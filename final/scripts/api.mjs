@@ -1,4 +1,4 @@
-const apiBaseUrl = "https://sif2-api.ethanthesleepy.one"; //credentials: 'include'
+const apiBaseUrl = "http://localhost:8000"; //credentials: 'include'
 export async function fetchCards(page) {
     if (isNaN(page)) page = 1;
     try {
@@ -62,6 +62,37 @@ export async function getUserInformation() {
     } catch(e) {
         window.location.href = "login.html";
         localStorage.removeItem("loggedin");
+    }
+}
+
+export async function getServerInfo() {
+    try {
+        const resp = await fetch(`${apiBaseUrl}/api/webui/serverInfo`);
+        const data = await resp.json();
+        if (data.result === "ERR") {
+            throw new Error(json.message);
+        }
+        return data.data;
+    } catch(e) {
+        return null;
+    }
+}
+
+export async function importUser(data) {
+    let options = {
+        method: "POST",
+        body: JSON.stringify(data)
+    }
+    try {
+        const resp = await fetch(`${apiBaseUrl}/api/webui/import`, options);
+        const json = await resp.json();
+        if (json.result === "ERR") {
+            throw new Error(json.message);
+        }
+        return json;
+    } catch(e) {
+        console.error("Error importing user:", e);
+        throw e;
     }
 }
 

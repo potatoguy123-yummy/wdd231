@@ -12,13 +12,31 @@ function displayCards(cards) {
     cards.current.forEach(card => {
         const cardElement = document.createElement("div");
         cardElement.classList.add("card");
-        cardElement.innerHTML = `
-        <img src="images/card-thumbnails/t_${card.image}.webp" alt="${card.name}" loading="lazy">
-        <strong>${card.name}</strong>
-        <p><i>Character: ${card.character}</i></p>
-        <p>Rarity: ${card.rarity}</p>
-        <p>Attribute: ${card.attribute}</p>
-        `;
+
+        const image = document.createElement("img");
+        image.src = `images/card-thumbnails/t_${card.image}.webp`;
+        image.alt = card.name;
+        image.setAttribute("loading", "lazy");
+        cardElement.appendChild(image);
+
+        const strong = document.createElement("strong");
+        strong.textContent = card.name;
+        cardElement.appendChild(strong);
+
+        const characterParagraph = document.createElement("p");
+        const characterI = document.createElement("i");
+        characterI.textContent = `Character: ${card.character}`;
+        characterParagraph.appendChild(characterI);
+        cardElement.appendChild(characterParagraph);
+
+        const rarityParagraph = document.createElement("p");
+        rarityParagraph.textContent = `Rarity: ${card.rarity}`;
+        cardElement.appendChild(rarityParagraph);
+
+        const attributeParagraph = document.createElement("p");
+        attributeParagraph.textContent = `Attribute: ${card.attribute}`;
+        cardElement.appendChild(attributeParagraph);
+
         cardGrid.appendChild(cardElement);
     });
 }
