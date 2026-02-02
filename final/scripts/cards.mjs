@@ -1,4 +1,5 @@
 import { fetchCards } from "./api.mjs";
+import { navigation } from "./navigation.mjs"
 
 const cardGrid = document.querySelector(".card-grid");
 const paginationContainer = document.querySelector(".page-navigation");
@@ -22,35 +23,16 @@ function displayCards(cards) {
     });
 }
 
-function createPagination(totalPages) {
-    paginationContainer.innerHTML = "";
-    for (let i = 1; i <= totalPages; i++) {
-        const button = document.createElement("button");
-        button.dataset.page = i;
-        button.textContent = i;
-        button.addEventListener("click", () => handlePageChange(i));
-        paginationContainer.appendChild(button);
+const nav = new navigation(".page-navigation", handlePageChange);
+
+async function handlePageChange(newPage, data) {
+    if (!data) {
+        data = await fetchCards(newPage);
     }
-}
-
-function setActiveButton(page) {
-    const buttons = document.querySelectorAll(".page-navigation button");
-    buttons.forEach(button => button.classList.remove("active"));
-
-    const activeButton = document.querySelector(`.page-navigation button[data-page="${page}"]`);
-    if (activeButton) {
-        activeButton.classList.add("active");
-    }
-}
-
-async function handlePageChange(newPage) {
-    const data = await fetchCards(newPage);
     cardGrid.innerHTML = "";
     displayCards(data);
     window.history.pushState({}, "", `?page=${newPage}`);
     window.scrollTo(0, 0);
-
-    setActiveButton(newPage);
 }
 
 const urlParams = new URLSearchParams(window.location.search);
@@ -58,9 +40,9 @@ const currentPage = parseInt(urlParams.get("page")) || 1;
 
 async function init() {
     const initialData = await fetchCards(currentPage);
-    handlePageChange(currentPage);
-    displayCards(initialData);
-    createPagination(initialData.total_pages);
+    nav.createPagination(initialData.total_pages);
+    handlePageChange(currentPage, initialData);
+    nav.setActiveButton(currentPage);
 }
 
 init();
