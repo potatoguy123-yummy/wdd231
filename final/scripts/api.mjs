@@ -1,4 +1,4 @@
-const apiBaseUrl = "http://localhost:8000";
+const apiBaseUrl = "https://sif2-api.ethanthesleepy.one"; //credentials: 'include'
 export async function fetchCards(page) {
     if (isNaN(page)) page = 1;
     try {
@@ -31,7 +31,8 @@ export async function login(username, password) {
         body: JSON.stringify({
             uid: parseInt(username),
             password: password
-        })
+        }),
+        credentials: 'include'
     }
     try {
         const resp = await fetch(`${apiBaseUrl}/api/webui/login`, options);
@@ -42,6 +43,25 @@ export async function login(username, password) {
     } catch(e) {
         console.error("Error logging in:", e);
         throw e;
+    }
+    localStorage.setItem("loggedin", "true")
+    window.location.href = "account.html"
+}
+
+export async function getUserInformation() {
+    let options = {
+        credentials: 'include'
+    }
+    try {
+        const resp = await fetch(`${apiBaseUrl}/api/webui/userInfo`, options);
+        const userData = await resp.json();
+        if (userData.result === "ERR") {
+            throw new Error(json.message);
+        }
+        return userData.data;
+    } catch(e) {
+        window.location.href = "login.html";
+        localStorage.removeItem("loggedin");
     }
 }
 
