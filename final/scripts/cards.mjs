@@ -1,8 +1,13 @@
 import { fetchCards } from "./api.mjs";
 import { navigation } from "./navigation.mjs"
 
+const urlParams = new URLSearchParams(window.location.search);
+
 const cardGrid = document.querySelector(".card-grid");
-const paginationContainer = document.querySelector(".page-navigation");
+const searchInput = document.getElementById("search-input");
+const searchButton = document.getElementById("search-button");
+
+let query = urlParams.get("query") || "";
 
 function displayCards(cards) {
     if (!cards || !cards.current) {
@@ -43,24 +48,44 @@ function displayCards(cards) {
 
 const nav = new navigation(".page-navigation", handlePageChange);
 
-async function handlePageChange(newPage, data) {
+async function handlePageChange(newPage, data, init) {
     if (!data) {
-        data = await fetchCards(newPage);
+        data = await fetchCards(newPage, query);
     }
     cardGrid.innerHTML = "";
     displayCards(data);
-    window.history.pushState({}, "", `?page=${newPage}`);
+    const q = typeof query === "string" && query.trim() ? `&query=${query}` : "";
+    if (!init) window.history.pushState({}, "", `?page=${newPage}${q}`);
     window.scrollTo(0, 0);
 }
 
-const urlParams = new URLSearchParams(window.location.search);
 const currentPage = parseInt(urlParams.get("page")) || 1;
 
-async function init() {
-    const initialData = await fetchCards(currentPage);
-    nav.createPagination(initialData.total_pages);
-    handlePageChange(currentPage, initialData);
+async function init(first) {
+    const initialData = await fetchCards(currentPage, query);
+    if (initialData) {
+        nav.createPagination(initialData.total_pages);
+    } else {
+        nav.clearPagination();
+    }
+    handlePageChange(currentPage, initialData, first);
     nav.setActiveButton(currentPage);
 }
 
-init();
+init(true);
+
+// Search - just re-init with search query
+async function search() {
+    query = searchInput.value.trim();
+    init(false);
+}
+
+searchButton.addEventListener("click", search);
+
+searchInput.addEventListener("keydown", async (event) => {
+    if (event.key === "Enter") {
+        search();
+    }
+});
+
+searchInput.value = query;

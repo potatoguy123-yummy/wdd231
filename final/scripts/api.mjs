@@ -1,8 +1,9 @@
-const apiBaseUrl = "http://localhost:8000"; //credentials: 'include'
-export async function fetchCards(page) {
+const apiBaseUrl = "http://localhost:8000";
+export async function fetchCards(page, query) {
     if (isNaN(page)) page = 1;
     try {
-        const response = await fetch(`${apiBaseUrl}/api/webui/listCards?page=${page}`);
+        const q = typeof query === "string" && query.trim() ? `&query=${query}` : "";
+        const response = await fetch(`${apiBaseUrl}/api/webui/listCards?page=${page}${q}`);
         const data = await response.json();
         return data;
     } catch (error) {

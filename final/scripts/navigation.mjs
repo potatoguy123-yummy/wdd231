@@ -17,6 +17,9 @@ export class navigation {
             this.container.appendChild(button);
         }
     }
+    clearPagination() {
+        this.container.innerHTML = "";
+    }
     setActiveButton(page) {
         if (isNaN(page)) return;
         const buttons = document.querySelectorAll(`${this.query} button`);

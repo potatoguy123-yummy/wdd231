@@ -28,14 +28,14 @@ function displayMusic(music) {
 
 const nav = new navigation(".page-navigation", handlePageChange);
 
-async function handlePageChange(newPage, data) {
+async function handlePageChange(newPage, data, init) {
     if (!data) {
         data = await fetchMusic(newPage, language);
     }
     musicList.innerHTML = "";
     displayMusic(data);
     window.scrollTo(0, 0);
-    updateHistory(newPage, language);
+    if (!init) updateHistory(newPage, language);
     currentPage = newPage;
 }
 
@@ -45,7 +45,7 @@ function updateHistory(page, language) {
 
 const languageButtons = document.querySelectorAll(".language-selector button");
 
-function updateSelectedLanguage(lang) {
+function updateSelectedLanguage(lang, init) {
     languageButtons.forEach(btn => btn.classList.remove("active"));
     const newSelected = document.querySelector(`.language-selector button[data-lang="${lang}"]`);
     if (newSelected) {
@@ -53,8 +53,10 @@ function updateSelectedLanguage(lang) {
     }
     language = lang;
     localStorage.setItem("lang", language);
-    handlePageChange(currentPage);
-    updateHistory(currentPage, language);
+    if (!init) {
+        handlePageChange(currentPage);
+        updateHistory(currentPage, language);
+    }
 }
 
 languageButtons.forEach(button => {
@@ -67,8 +69,8 @@ async function init() {
     const data = await fetchMusic(currentPage, language);
     nav.createPagination(data.total_pages);
     nav.setActiveButton(currentPage);
-    handlePageChange(currentPage, data);
-    updateSelectedLanguage(language);
+    updateSelectedLanguage(language, true);
+    handlePageChange(currentPage, data, true);
 }
 
 init();
