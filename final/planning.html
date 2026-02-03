@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Ethan O'Brien">
+    <meta property="og:title" content="Planning - EW WebUI">
+    <meta property="og:url" content="https://potatoguy123-yummy.github.io/wdd231/final/planning.html">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+
+    <link rel="icon" href="favicon.svg">
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/header.css">
+    <link rel="stylesheet" href="styles/footer.css">
+    <link rel="stylesheet" href="styles/planning.css">
+
+    <script src="scripts/header.js" defer></script>
+
+    <title>Planning - EW WebUI</title>
+</head>
+<body>
+    <header>
+        <img src="favicon.ico" alt="Website Logo" width="50" height="50">
+        <span>EW private server</span>
+        <button id="ham-btn" class="hamburger" title="Menu"></button>
+        <nav id="nav-bar" class="navigation">
+            <ul>
+                <li><a href="./">Home</a></li>
+                <li><a href="cards.html">Card Database</a></li>
+                <li><a href="songs.html">Song List</a></li>
+                <li><a href="help.html">FAQ</a></li>
+                <li id="account"><a href="account.html">Account</a></li>
+                <li id="login"><a href="login.html">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Planning</h1>
+        <h2>Site Name</h2>
+        <p>The site name is "EW private server". This is shown as "EW webui" in some places. This website name was chosen was because the backend server is named "ew" and this is the webui that will be embedded into the server.</p>
+
+        <h2>Site Purpose</h2>
+        <p>The purpose of this website is to give users an ability to browse cards/songs available in-game, and allows users to manage their account. Most of this website is primarily intended towards people that already have an account and know what they're doing. I possibly have plans in the future to write an install guide (move it out of the FAQ) but this is for later after this assignment if I ever do it.</p>
+
+        <h2>Scenarios</h2>
+        <p>Is this card available in-game?</p>
+        <p>How can I give myself unlimited resources?</p>
+
+        <h2>Color Scheme</h2>
+        <p><strong>Header background</strong>: #F8BBD0</p>
+        <p><strong>Header on hover</strong>: #E188B3</p>
+        <p><strong>Header highlight (the highlight you get to highlight the current page)</strong>: rgba(241, 156, 197, 0.5)</p>
+        <p><strong>Body background</strong>: #FFF0F5</p>
+        <p><strong>Body on hover</strong>: #F48FB1</p>
+        <p><strong>Body card</strong>: #FFFFFF</p>
+        
+        <h2>Typography</h2>
+        <p>I will be using Alegreya. I will use a larger weight for the header and footer, and a smaller weight for the body. I chose this font because it looks neat and a little playful and the feel matches with the color scheme and content.</p>
+
+        <h2>Wireframe</h2>
+        <h3>Desktop</h3>
+        <img src="images/desktop.png" alt="Wireframe Desktop">
+        <h3>Mobile</h3>
+        <img src="images/mobile.png" alt="Wireframe Mobile">
+    </main>
+    <footer>
+        <div class="social">
+            <a href="https://discord.gg/gHuCzK3b2Z" target="_blank"><img src="images/discord.png" alt="Discord" width="24" height="24"></a>
+        </div>
+        <div class="copyright">
+            <span>©<span id="currentyear"></span> | EW (Ew, Why?) Private Server</span>
+            <p>EW Version 1.0.0 - <a href="https://git.ethanthesleepy.one/ethanaobrien/ew">View source</a> - <a href="https://git.ethanthesleepy.one/ethanaobrien/ew/src/branch/main/LICENSE">View license</a></p>
+        </div>
+    </footer>
+</body>
+</html>

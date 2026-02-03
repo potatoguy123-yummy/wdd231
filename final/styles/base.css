@@ -13,6 +13,20 @@
     --maximum-page-size: 1600px;
 }
 
+header *, footer * {
+    font-family: "Alegreya", serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+}
+
+body * {
+    font-family: "Alegreya", serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+}
+
 * {
     box-sizing: border-box;
     font-family: "Open Sans", sans-serif;
