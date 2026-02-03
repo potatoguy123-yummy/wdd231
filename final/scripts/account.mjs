@@ -1,9 +1,113 @@
-import { getUserInformation } from "./api.mjs";
+import { getUserInformation, fetchAllCardInfo, startLoginBonus, cheatMode } from "./api.mjs";
 
+function showError(message) {
+    const modalTitle = document.getElementById("modal-title");
+    const modalMessage = document.getElementById("modal-message");
+    const modal = document.querySelector("dialog");
 
-async function init() {
-    const userData = await getUserInformation();
-    console.log(userData);
+    modalTitle.textContent = "Error";
+    modalMessage.textContent = message;
+    modal.showModal();
 }
 
-init();
+document.querySelector(".close-button").addEventListener("click", () => {
+    document.querySelector("dialog").close();
+});
+
+const cards = await fetchAllCardInfo();
+
+function getCardName(id) {
+    if (!cards[id]) return "";
+    return cards[id].name;
+}
+
+function getCardPicture(id) {
+    const card = cards[id];
+    if (!card) return "";
+    return `images/card-thumbnails/t_${card.image}.webp`;
+}
+
+const data = await getUserInformation();
+const userData = data.userdata;
+console.log(data);
+
+document.getElementById("user-name").textContent = userData.user.name;
+document.getElementById("user-id").textContent = userData.user.id;
+document.getElementById("user-exp").textContent = userData.user.exp;
+document.getElementById("user-main-deck-slot").textContent = userData.user.main_deck_slot;
+document.getElementById("user-rank").textContent = userData.user.rank;
+document.getElementById("user-stamina").textContent = userData.stamina.stamina
+
+document.getElementById("gem-total").textContent = userData.gem.total;
+document.getElementById("gem-free").textContent = userData.gem.free;
+
+const cardList = userData.deck_list[userData.user.main_deck_slot - 1].main_card_ids;
+
+const cardGrid = document.getElementById("card-grid");
+if (cardList && cardList.length > 0) {
+    cardList.forEach(card => {
+        const cardElement = document.createElement("div");
+        cardElement.classList.add("card");
+        cardElement.innerHTML = `
+            <img src="${getCardPicture(card)}" alt="${getCardName(card)}">
+            <p>${getCardName(card)}</p>
+        `;
+        cardGrid.appendChild(cardElement);
+    });
+} else {
+    cardGrid.textContent = "No cards found.";
+}
+
+function displayBonuses() {
+    const bonusList = document.getElementById("login-bonus-list");
+    if (Array.isArray(data.loginbonus.bonus_list) && data.loginbonus.bonus_list.length > 0) {
+        data.loginbonus.bonus_list.forEach(elem => {
+            const li = document.createElement("li");
+            li.innerText = elem.master_login_bonus_id;
+            bonusList.appendChild(li);
+        });
+    } else {
+        bonusList.innerText = "No current bonuses";
+    }
+}
+
+displayBonuses();
+
+
+const textInput = document.getElementById("login-bonus-id");
+document.getElementById("login-bonus-form").addEventListener("submit", async e => {
+    e.preventDefault();
+    let id = parseInt(textInput.value);
+    if (isNaN(id) || id <= 0) {
+        return showError("Login bonus ID must be a greater than 0.");
+    }
+    try {
+        let resp = await startLoginBonus(id);
+        if (resp.result === "OK") {
+            data.loginbonus.bonus_list.push({master_login_bonus_id: resp.id});
+            displayBonuses();
+        }
+    } catch(e) {
+        return showError(`Error: ${e.message}`);
+    }
+    textInput.value = "";
+});
+
+const timeStatus = document.getElementById("current-server-time");
+function updateServerTime(time) {
+    if (time === 0) {
+        timeStatus.textContent = "now";
+    } else {
+        timeStatus.textContent = (new Date(time * 1000)).toString();
+    }
+}
+
+updateServerTime(data.time);
+
+document.querySelector(".give-me-money button").addEventListener("click", async (e) => {
+    try {
+        await cheatMode();
+    } catch(e) {
+        showError(`Error: ${e.message}`);
+    }
+})

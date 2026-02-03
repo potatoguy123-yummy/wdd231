@@ -13,6 +13,6 @@ document.getElementById("currentyear").innerText = currentYear;
 
 let loggedIn = !!localStorage.getItem("loggedin");
 
-document.getElementById("account").style.display = loggedIn ? "inline-block" : "none";
-document.getElementById("login").style.display = loggedIn ? "none" : "inline-block";
+document.getElementById("account").style.display = loggedIn ? "block" : "none";
+document.getElementById("login").style.display = loggedIn ? "none" : "block";
 

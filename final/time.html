@@ -4,22 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Ethan O'Brien">
-    <meta name="description" content="Login to view and manage your account">
-    <meta property="og:title" content="Login - EW WebUI">
-    <meta property="og:description" content="Login to view and manage your account">
-    <meta property="og:url" content="https://potatoguy123-yummy.github.io/wdd231/final/login.html">
+    <meta name="description" content="Manage your account on the Love Live! SIF2 private server">
+    <meta property="og:title" content="Account - EW WebUI">
+    <meta property="og:description" content="Manage your account on the Love Live! SIF2 private server">
+    <meta property="og:url" content="https://potatoguy123-yummy.github.io/wdd231/final/account.html">
+    <!-- TODO - FIND IMAGE TO USE!! need to put on all pages
+    <meta property="og:image" content="">
+    -->
 
     <link rel="icon" href="favicon.svg">
     <link rel="stylesheet" href="styles/base.css">
     <link rel="stylesheet" href="styles/header.css">
     <link rel="stylesheet" href="styles/footer.css">
-    <link rel="stylesheet" href="styles/login.css">
     <link rel="stylesheet" href="styles/dialog.css">
+    <link rel="stylesheet" href="styles/time.css">
 
     <script src="scripts/header.js" defer></script>
-    <script src="scripts/login.mjs" type="module"></script>
+    <script src="scripts/time.mjs" type="module"></script>
 
-    <title>Login - EW WebUI</title>
+    <title>Account - EW WebUI</title>
 </head>
 <body>
     <header>
@@ -33,29 +36,19 @@
                 <li><a href="songs.html">Song List</a></li>
                 <li><a href="help.html">FAQ</a></li>
                 <li id="account"><a href="account.html">Account</a></li>
-                <li id="login"><a class="current-page" href="login.html">Login</a></li>
+                <li id="login"><a href="login.html">Login</a></li>
             </ul>
         </nav>
     </header>
     <main>
-        <div id="login-form">
-            <h1>Login</h1>
-            <form>
-                <label for="id">SIF2 ID:</label>
-                <input type="text" id="id" name="id" value="">
-                <label for="password">Transfer passcode:</label>
-                <input type="password" id="password" name="password">
-                <input type="submit" value="Submit">
-                <div class="sub">
-                    <button id="import-button">Import User</button>
-                </div>
-            </form>
-        </div>
+        <h1>Time Change</h1>
+        <p>Time has been changed to: <span id="new-time"></span></p>
+        <p>Your Input: <span id="user-input"></span></p>
         <dialog>
             <div class="modal-content">
                 <h2 id="modal-title">Error</h2>
                 <p id="modal-message">An error occurred.</p>
-                <button class="close-button">Close</button>
+                <button class="close-button">Okay</button>
             </div>
         </dialog>
     </main>

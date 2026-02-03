@@ -1,4 +1,4 @@
-const apiBaseUrl = "http://localhost:8000";
+const apiBaseUrl = "https://sif2-api.ethanthesleepy.one";
 export async function fetchCards(page, query) {
     if (isNaN(page)) page = 1;
     try {
@@ -8,6 +8,22 @@ export async function fetchCards(page, query) {
         return data;
     } catch (error) {
         console.error("Error fetching cards:", error);
+        return null;
+    }
+}
+
+export async function fetchAllCardInfo() {
+    try {
+        const response = await fetch(`${apiBaseUrl}/api/webui/listCards?all=true`);
+        const data = await response.json();
+        const cards = data.current;
+        let rv = {};
+        for (let i = 0; i < cards.length; i++) {
+            rv[cards[i].id] = cards[i];
+        }
+        return rv;
+    } catch (error) {
+        console.error("Error fetching all cards:", error);
         return null;
     }
 }
@@ -33,7 +49,7 @@ export async function login(username, password) {
             uid: parseInt(username),
             password: password
         }),
-        credentials: 'include'
+        credentials: "include"
     }
     try {
         const resp = await fetch(`${apiBaseUrl}/api/webui/login`, options);
@@ -51,7 +67,7 @@ export async function login(username, password) {
 
 export async function getUserInformation() {
     let options = {
-        credentials: 'include'
+        credentials: "include"
     }
     try {
         const resp = await fetch(`${apiBaseUrl}/api/webui/userInfo`, options);
@@ -93,6 +109,64 @@ export async function importUser(data) {
         return json;
     } catch(e) {
         console.error("Error importing user:", e);
+        throw e;
+    }
+}
+
+export async function startLoginBonus(bonusId) {
+    let options = {
+        method: "POST",
+        body: JSON.stringify({
+            bonus_id: bonusId
+        }),
+        credentials: "include"
+    }
+    try {
+        const resp = await fetch(`${apiBaseUrl}/api/webui/startLoginbonus`, options);
+        const json = await resp.json();
+        if (json.result === "ERR") {
+            throw new Error(json.message);
+        }
+        return json;
+    } catch(e) {
+        console.error("Error starting login bonus:", e);
+        throw e;
+    }
+}
+
+export async function setTime(timestamp) {
+    let options = {
+        method: "POST",
+        body: JSON.stringify({ timestamp }),
+        credentials: "include"
+    }
+    try {
+        const resp = await fetch(`${apiBaseUrl}/api/webui/set_time`, options);
+        const json = await resp.json();
+        if (json.result === "ERR") {
+            throw new Error(json.message);
+        }
+        return json;
+    } catch(e) {
+        console.error("Error setting time:", e);
+        throw e;
+    }
+}
+
+export async function cheatMode() {
+    let options = {
+        method: "POST",
+        credentials: "include"
+    }
+    try {
+        const resp = await fetch(`${apiBaseUrl}/api/webui/cheat`, options);
+        const json = await resp.json();
+        if (json.result === "ERR") {
+            throw new Error(json.message);
+        }
+        return json;
+    } catch(e) {
+        console.error("User couldn't cheat:", e);
         throw e;
     }
 }
