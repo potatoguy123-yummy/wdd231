@@ -171,4 +171,16 @@ export async function cheatMode() {
     }
 }
 
+export async function getLoginBonusList() {
+    try {
+        const resp = await fetch(`${apiBaseUrl}/api/webui/listLoginBonus`);
+        const json = await resp.json();
+        return json;
+    } catch(e) {
+        console.error("Couldnt get login bonus list:", e);
+        throw e;
+    }
+    
+}
+
 export const clearRateHtmlSrc = `${apiBaseUrl}/live_clear_rate.html`;

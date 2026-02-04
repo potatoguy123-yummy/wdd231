@@ -1,4 +1,4 @@
-import { getUserInformation, fetchAllCardInfo, startLoginBonus, cheatMode } from "./api.mjs";
+import { getUserInformation, fetchAllCardInfo, startLoginBonus, cheatMode, getLoginBonusList } from "./api.mjs";
 
 function showError(message) {
     const modalTitle = document.getElementById("modal-title");
@@ -70,14 +70,28 @@ function displayBonuses() {
         bonusList.innerText = "No current bonuses";
     }
 }
-
 displayBonuses();
 
+const bonuses = document.getElementById("bonuses");
+function setupLoginBonus(loginBonus) {
+    for (const k in loginBonus) {
+        const bonus = loginBonus[k];
+        const option = document.createElement("option");
+        option.setAttribute("value", k);
+        option.textContent = `${k}: ${bonus.en}`;
+        bonuses.appendChild(option);
+    }
+}
 
-const textInput = document.getElementById("login-bonus-id");
+try {
+    const loginBonus = await getLoginBonusList();
+    setupLoginBonus(loginBonus);
+} catch(e) {
+    showError(`Error setting up login bonus: ${e.message}`);
+}
 document.getElementById("login-bonus-form").addEventListener("submit", async e => {
     e.preventDefault();
-    let id = parseInt(textInput.value);
+    let id = parseInt(bonuses.value);
     if (isNaN(id) || id <= 0) {
         return showError("Login bonus ID must be a greater than 0.");
     }

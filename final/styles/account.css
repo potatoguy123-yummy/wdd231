@@ -61,7 +61,7 @@ h2 {
     margin-bottom: 10px;
 }
 
-input {
+input, select {
     padding: 8px;
     border: 1px solid var(--body-background);
     border-radius: 4px;
@@ -70,7 +70,12 @@ input {
     box-sizing: border-box;
 }
 
-input:focus {
+select {
+    width: 350px;
+    max-width: 75vw;
+}
+
+input:focus, select:focus {
     outline: none;
     border: 1px solid var(--body-hover);
     box-shadow: 0 0 5px rgba(102, 175, 229, 0.5);
