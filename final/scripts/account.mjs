@@ -1,4 +1,4 @@
-import { getUserInformation, fetchAllCardInfo, startLoginBonus, cheatMode, getLoginBonusList } from "./api.mjs";
+import { getUserInformation, fetchAllCardInfo, startLoginBonus, cheatMode, getLoginBonusList, exportUserAccount } from "./api.mjs";
 
 function showError(message) {
     const modalTitle = document.getElementById("modal-title");
@@ -124,4 +124,26 @@ document.querySelector(".give-me-money button").addEventListener("click", async 
     } catch(e) {
         showError(`Error: ${e.message}`);
     }
+})
+
+function downloadFile(contents, name) {
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(new Blob([contents], {type: "application/json"}));
+    a.download = name;
+    a.click();
+}
+document.getElementById("export-account").addEventListener("click", async (e) => {
+    try {
+        const data = await exportUserAccount();
+        downloadFile(data.userdata, "userdata.json");
+        downloadFile(data.userhome, "userhome.json");
+        downloadFile(data.missions, "missions.json");
+        downloadFile(data.sifcards, "sifcards.json");
+    } catch(e) {
+        showError(`Error: ${e.message}`);
+    }
+})
+document.getElementById("logout").addEventListener("click", async (e) => {
+    localStorage.removeItem("loggedin");
+    // window.location.href = "/webui/logout"
 })

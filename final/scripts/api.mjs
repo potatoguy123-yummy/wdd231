@@ -180,7 +180,23 @@ export async function getLoginBonusList() {
         console.error("Couldnt get login bonus list:", e);
         throw e;
     }
-    
+}
+
+export async function exportUserAccount() {
+    let options = {
+        credentials: "include"
+    }
+    try {
+        const resp = await fetch(`${apiBaseUrl}/api/webui/export`, options);
+        const json = await resp.json();
+        if (json.result === "ERR") {
+            throw new Error(json.message);
+        }
+        return json.data;
+    } catch(e) {
+        console.error("Couldn't export user account:", e);
+        throw e;
+    }
 }
 
 export const clearRateHtmlSrc = `${apiBaseUrl}/live_clear_rate.html`;
