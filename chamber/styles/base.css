@@ -567,6 +567,7 @@ dialog[open]::backdrop {
 .discover-card > figure {
     grid-area: photograph;
     border: 1px solid black;
+    overflow: hidden;
 }
 
 .discover-card > p {
